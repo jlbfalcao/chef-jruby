@@ -1,17 +1,28 @@
 Description
 ===========
 
-Installs JRuby
+Installs JRuby into `/usr/local/lib/jruby`. 
+
+Binaries are linked to `/usr/local/bin/jruby`.
 
 Requirements
 ============
 
-Requires Java. Tested on Ubuntu 11.04.
+Platform:
+
+* Debian, Ubuntu (tested on 10.04)
+
+The following Opscode cookbooks are dependencies:
+
+* java
 
 Attributes
 ==========
 
+* `['jruby']['version']`
+* `['jruby']['checksum']`
+
 Usage
 =====
 
-Include default recipe in your run list.
+include_recipe "jruby"

@@ -27,19 +27,17 @@ remote_file "/usr/src/jruby-bin-#{version}.tar.gz" do
 end
 
 execute "untar jruby" do
-  command "tar xzf jruby-bin-#{version}.tar.gz"
-  cwd "/usr/src"
-  creates "/usr/src/jruby-#{version}/README"
+  command "tar xzf /usr/src/jruby-bin-#{version}.tar.gz "
+  cwd "/usr/local/lib"
+  creates "/usr/local/lib/jruby-#{version}"
 end
 
-link "/usr/bin/jruby" do
-  to "/usr/src/jruby-#{version}/bin/jruby"
+link "/usr/local/jruby" do
+  to "/usr/local/lib/jruby-#{version}"
 end
 
-link "/usr/bin/jirb" do
-  to "/usr/src/jruby-#{version}/bin/jirb"
-end
-
-link "/usr/bin/jgem" do
-  to "/usr/src/jruby-#{version}/bin/jgem"
+%w( jruby jirb jgem ).each do |b|
+  link "/usr/local/bin/#{b}" do
+    to "/usr/local/jruby/bin/#{b}"
+  end
 end
