@@ -1,2 +1,2 @@
-default[:jruby][:version] = "1.6.4"
-default[:jruby][:checksum] = "64fb1a85"
+default[:jruby][:version] = "1.6.5"
+default[:jruby][:checksum] = "e15a273b"
