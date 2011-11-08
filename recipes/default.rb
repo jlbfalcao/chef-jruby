@@ -41,3 +41,15 @@ end
     to "/usr/local/jruby/bin/#{b}"
   end
 end
+
+execute "configure nailgun" do
+  command "./configure"
+  cwd "/usr/local/jruby/tool/nailgun"
+  creates "/usr/local/jruby/tool/nailgun/Makefile"
+end
+
+execute "build nailgun" do
+  command "make"
+  cwd "/usr/local/jruby/tool/nailgun"
+  creates "/usr/local/jruby/tool/nailgun/ng"
+end
