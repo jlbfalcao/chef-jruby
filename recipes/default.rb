@@ -21,35 +21,27 @@ include_recipe "java"
 
 version = node[:jruby][:version]
 
-remote_file "/usr/src/jruby-bin-#{version}.tar.gz" do
-  source "http://jruby.org.s3.amazonaws.com/downloads/#{version}/jruby-bin-#{version}.tar.gz"
+prefix =  '/usr/local/lib/jruby'
+
+# install jruby
+install_from_release('jruby') do
+  release_url  "http://jruby.org.s3.amazonaws.com/downloads/#{version}/jruby-bin-#{version}.tar.gz"
+  home_dir     prefix
+  action       [:install, :install_binaries]
+  version     '1.6.5.1'
   checksum node[:jruby][:checksum]
-end
-
-execute "untar jruby" do
-  command "tar xzf /usr/src/jruby-bin-#{version}.tar.gz "
-  cwd "/usr/local/lib"
-  creates "/usr/local/lib/jruby-#{version}"
-end
-
-link "/usr/local/jruby" do
-  to "/usr/local/lib/jruby-#{version}"
-end
-
-%w( jruby jirb jgem ).each do |b|
-  link "/usr/local/bin/#{b}" do
-    to "/usr/local/jruby/bin/#{b}"
-  end
+  has_binaries  %w(bin/jgem bin/jruby bin/jrib)
+  not_if{      File.exists?(prefix) }
 end
 
 execute "configure nailgun" do
   command "./configure"
-  cwd "/usr/local/jruby/tool/nailgun"
-  creates "/usr/local/jruby/tool/nailgun/Makefile"
+  cwd File.join(prefix, "tool/nailgun")
+  creates File.join(prefix, "tool/nailgun/Makefile")
 end
 
 execute "build nailgun" do
   command "make"
-  cwd "/usr/local/jruby/tool/nailgun"
-  creates "/usr/local/jruby/tool/nailgun/ng"
+  cwd File.join(prefix, "tool/nailgun")
+  creates File.join(prefix, "tool/nailgun/ng")
 end
