@@ -1,5 +1,5 @@
-maintainer       "Heavy Water Software Inc."
-maintainer_email "darrin@heavywater.ca"
+maintainer       "Jorge Falcão"
+maintainer_email "falcao@intelie.com.br"
 license          "Apache 2.0"
 description      "Installs/Configures jruby"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
