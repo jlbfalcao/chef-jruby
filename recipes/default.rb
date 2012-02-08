@@ -28,7 +28,7 @@ install_from_release('jruby') do
   release_url  "http://jruby.org.s3.amazonaws.com/downloads/#{version}/jruby-bin-#{version}.tar.gz"
   home_dir     prefix
   action       [:install, :install_binaries]
-  version     '1.6.5.1'
+  version      version
   checksum node[:jruby][:checksum]
   has_binaries  %w(bin/jgem bin/jruby bin/jrib)
   not_if{      File.exists?(prefix) }
