@@ -21,7 +21,7 @@ include_recipe "java"
 
 version = node[:jruby][:version]
 
-prefix =  '/usr/local/lib/jruby'
+prefix =  node[:jruby][:install_path]
 
 # install jruby
 install_from_release('jruby') do
@@ -30,7 +30,7 @@ install_from_release('jruby') do
   action       [:install, :install_binaries]
   version      version
   checksum node[:jruby][:checksum]
-  has_binaries  %w(bin/jgem bin/jruby bin/jrib)
+  has_binaries  %w(bin/jgem bin/jruby bin/jirb)
   not_if{      File.exists?(prefix) }
 end
 
