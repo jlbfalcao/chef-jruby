@@ -21,6 +21,8 @@ Attributes
 
 * `['jruby']['version']`
 * `['jruby']['checksum']`
+* `['jruby']['install_path']`
+ 
 
 Usage
 =====
