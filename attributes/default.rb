@@ -1,3 +1,3 @@
-default[:jruby][:version] = "1.6.6"
-default[:jruby][:checksum] = "78b1dcaf198e79f98b37cf09c362a956"
+default[:jruby][:version] = "1.6.7"
+default[:jruby][:checksum] = "fd1b8d7389aa92da69ea6efb4782e40a"
 default[:jruby][:install_path] = "/usr/local/lib/jruby"
