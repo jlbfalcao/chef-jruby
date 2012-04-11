@@ -1,7 +1,7 @@
 {
-  "name": "chef-jruby",
+  "name": "jruby",
   "description": "Installs/Configures jruby",
-  "long_description": "Description\n===========\n\nInstalls JRuby into `/usr/local/lib/jruby`. \n\nBinaries are linked to `/usr/local/bin/jruby`.\n\nRequirements\n============\n\nPlatform:\n\n* Debian, Ubuntu (tested on 10.04)\n\nThe following Opscode cookbooks are dependencies:\n\n* java\n\nAttributes\n==========\n\n* `['jruby']['version']`\n* `['jruby']['checksum']`\n* `['jruby']['install_path']`\n \n\nUsage\n=====\n\ninclude_recipe \"jruby\"\n",
+  "long_description": "Description\n===========\n\nInstalls JRuby into `/usr/local/lib/jruby`\n\nBinaries are linked to `/usr/local/bin/jruby`\n\nRequirements\n============\n\nPlatform:\n\n* Debian, Ubuntu (tested on 10.04)\n\nThe following Opscode cookbooks are dependencies:\n\n* java\n\nAttributes\n==========\n\n* `['jruby']['version']`\n* `['jruby']['checksum']`\n* `['jruby']['install_path']`\n \n\nUsage\n=====\n\ninclude_recipe \"jruby\"\n\nUpdating Metadata\n=================\n\n    knife cookbook metadata chef-jruby -o ../",
   "maintainer": "Jorge Falcão",
   "maintainer_email": "falcao@intelie.com.br",
   "license": "Apache 2.0",
