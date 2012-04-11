@@ -1,9 +1,9 @@
 Description
 ===========
 
-Installs JRuby into `/usr/local/lib/jruby`. 
+Installs JRuby into `/usr/local/lib/jruby`
 
-Binaries are linked to `/usr/local/bin/jruby`.
+Binaries are linked to `/usr/local/bin/jruby`
 
 Requirements
 ============
@@ -28,3 +28,8 @@ Usage
 =====
 
 include_recipe "jruby"
+
+Updating Metadata
+=================
+
+    knife cookbook metadata chef-jruby -o ../
