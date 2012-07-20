@@ -34,14 +34,17 @@ install_from_release('jruby') do
   not_if{      File.exists?(prefix) }
 end
 
-execute "configure nailgun" do
-  command "./configure"
-  cwd File.join(prefix, "tool/nailgun")
-  creates File.join(prefix, "tool/nailgun/Makefile")
+if node[:jruby][:nailgun]
+  include_recipe "jruby::nailgun"
 end
 
-execute "build nailgun" do
-  command "make"
-  cwd File.join(prefix, "tool/nailgun")
-  creates File.join(prefix, "tool/nailgun/ng")
+# install all gems defined in the module
+node[:jruby][:gems].each do |gem|
+  if gem.is_a? Hash
+    name = gem.delete(:name)
+  else
+    name = gem
+    gem = nil
+  end
+  jruby_gem name, gem || {}
 end
