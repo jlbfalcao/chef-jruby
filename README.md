@@ -32,5 +32,8 @@ Usage
 
 include_recipe "jruby"
 
+jruby-1.7.0-preview1
+====================
 
-
+default[:jruby][:version] = "1.7.0.preview1"
+default[:jruby][:checksum] = "7b9e5e1cd0d818d0199086d948f948b4"
