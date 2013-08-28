@@ -38,7 +38,7 @@ install_from_release('jruby') do
   checksum node[:jruby][:checksum]
   has_binaries  %w(bin/jgem bin/jruby bin/jirb)
   not_if       { File.exists?(prefix) }
-  notifies :create_if_missing, "file[/etc/profile.d/jruby.sh]"
+  notifies :create_if_missing, "file[/etc/profile.d/jruby.sh]", :immediate
 end
 
 if node[:jruby][:nailgun]
