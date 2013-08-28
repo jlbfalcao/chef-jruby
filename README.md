@@ -12,11 +12,12 @@ Requirements
 
 Platform:
 
-* Debian, Ubuntu (tested on 10.04), CentOS (tested with 5.7)
+* Debian, Ubuntu (tested on 10.04, 12.04), CentOS (tested with 5.7)
 
 The following Opscode cookbooks are dependencies:
 
 * java
+* install_from
 
 Attributes
 ==========
