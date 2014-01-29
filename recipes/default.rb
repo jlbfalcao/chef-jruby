@@ -23,12 +23,6 @@ version = node[:jruby][:version]
 
 prefix =  node[:jruby][:install_path]
 
-file "/etc/profile.d/jruby.sh" do
-  mode "0644"
-  content "PATH=\$PATH:" + File.join(prefix, "bin")
-  action :nothing
-end
-
 # install jruby
 install_from_release('jruby') do
   release_url  "http://jruby.org.s3.amazonaws.com/downloads/#{version}/jruby-bin-#{version}.tar.gz"
@@ -38,7 +32,12 @@ install_from_release('jruby') do
   checksum node[:jruby][:checksum]
   has_binaries  %w(bin/jgem bin/jruby bin/jirb)
   not_if       { File.exists?(prefix) }
-  notifies :create_if_missing, "file[/etc/profile.d/jruby.sh]", :immediate
+end
+
+file "/etc/profile.d/jruby.sh" do
+  mode "0644"
+  content "PATH=\$PATH:" + File.join(prefix, "bin")
+  action :create_if_missing
 end
 
 if node[:jruby][:nailgun]
