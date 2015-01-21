@@ -33,8 +33,8 @@ Usage
 
 include_recipe "jruby"
 
-jruby-1.7.0-preview1
+jruby-1.7.18
 ====================
 
-default[:jruby][:version] = "1.7.0.preview1"
-default[:jruby][:checksum] = "7b9e5e1cd0d818d0199086d948f948b4"
+default[:jruby][:version] = "1.7.18"
+default[:jruby][:checksum] = "87a4d5fbf10d88ef8de12f3ebececf9ffc1abaee"
