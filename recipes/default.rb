@@ -47,7 +47,7 @@ end
 # install all gems defined in the module
 node[:jruby][:gems].each do |gem|
   if gem.is_a? Hash
-    name = gem.delete(:name)
+    name = gem[:name]
   else
     name = gem
     gem = nil
